@@ -1,0 +1,135 @@
+.sidebar {
+    height: 94vh;
+    width: 00vw;
+    position: fixed;
+    z-index: 9;
+    top: 5vh;
+    left: 0;
+    background-color: #030708 !important;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+
+.slider {
+    padding-top: 30px !important;
+}
+
+.activeSidebar {
+    width: 100vw !important;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 49%) repeat(3, 1fr);
+    grid-template-rows: repeat(3, 100px) repeat(2, 1fr);
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+    margin-left: -4px;
+}
+
+.div1 {
+    grid-area: 1 / 1 / 3 / 2;
+    border-radius: 15px;
+    box-shadow: 0px 0px 3px rgb(99, 99, 99);
+}
+
+.div2 {
+    grid-area: 1 / 2 / 2 / 3;
+    border-radius: 15px;
+    box-shadow: 0px 0px 3px rgb(99, 99, 99);
+}
+
+.div3 {
+    grid-area: 2 / 2 / 4 / 3;
+    border-radius: 15px;
+    box-shadow: 0px 0px 3px rgb(99, 99, 99);
+}
+
+.div4 {
+    grid-area: 3 / 1 / 4 / 2;
+    border-radius: 15px;
+    box-shadow: 0px 0px 3px rgb(99, 99, 99);
+}
+
+
+
+.selectCategory>div>div>h1 {
+    font-size: 30px;
+    color: white;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    font-family: 'SamsungSharpSans-Bold';
+    text-shadow: 0px 0px 4px black;
+}
+
+
+.text-slider-main{
+    top: 60px;
+    left: 70px;
+    max-width: 100px;
+}
+.text-grid {
+    top: 30px;
+    left: 85px;
+}
+
+.text-grid-2 {
+    bottom: -26px;
+    right: -30px;
+
+}
+
+.text-grid-3 {
+    bottom: -20px;
+    right: -42px;
+
+}
+
+.text-grid-4 {
+    bottom: -20px;
+    left: 69px;
+}
+
+.otherCategory {
+    max-width: 90vw;
+    font-size: 18px;
+    color: white;
+    position: relative;
+    left: 50%;
+    height: 70px;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    font-family: 'SamsungSharpSans-Bold';
+    text-shadow: 0px 0px 4px black;
+    margin-bottom: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding-left: 20px;
+    padding-top: 10px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 3px rgb(99, 99, 99);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+
+.maskot{
+    width: 45vw;
+    position: relative;
+    left: 50%;
+    top: 40px;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    font-family: 'SamsungSharpSans-Bold';
+    text-shadow: 0px 0px 4px black;
+}
+
+
+.textOpener{
+    opacity: 1;
+    transition: all 2s ease;
+}

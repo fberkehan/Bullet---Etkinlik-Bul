@@ -1,0 +1,60 @@
+
+
+.homePage, .categories, .etkinlikDetails, .category{
+    background-color: rgb(20, 20, 20) !important;
+    width: 100%;
+    position: relative;
+    padding-top: 50px;
+    padding-bottom: 40px;
+    height: auto;
+    min-height: 100vh;
+}
+
+.etkinlikDetails{
+    padding-bottom: 20vh !important;
+}
+
+.festivalBox{
+    padding: 15px !important;
+    margin: 0 !important;
+}
+
+.homePage-title {
+    color: #fff !important;
+}
+
+.selectCategory{
+    color: #fff !important;
+    font-size: 24px !important;
+}
+
+.event{
+    color: #fff !important;
+    font-size: 24px !important;
+    width: 100%;
+    height: 250px;
+    border-radius: 20px;
+    text-align: center;
+    position: relative;
+}
+
+/* Ana row konteynerini sınırla */
+.row {
+    width: 100%;
+    max-width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+  }
+  
+  /* Card ve img elemanlarının taşmasını önle */
+  .card, .card-img-top {
+    width: 100%; /* Bu, resimlerin ve kartların konteynerlerini tam doldurmasını sağlar */
+    height: auto; /* Bu, resimlerin orijinal oranlarını korumasını sağlar */
+  }
+  
+  /* Gereksiz padding ve margin'leri sıfırla */
+  .card {
+    padding: 0;
+    margin: 0;
+  }
+  

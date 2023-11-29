@@ -1,0 +1,77 @@
+.slider {
+  width: 93vw;          /* Width of the slider */
+  height: 32vh;         /* Height of the slider */
+  margin: 0 auto;
+  margin-bottom: 20px;
+  background-color: var(--beige);
+  border-radius: 15px;
+  position: relative;
+  overflow: hidden; 
+  box-sizing: content-box;
+}
+
+.slide {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: none;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.rtds-single-slide-styles>div {
+  display: flex;
+  align-items: start !important;
+  justify-content: flex-start !important;
+  height: 25vh !important;
+}
+
+.active {
+  display: flex;
+}
+
+.image-slider {
+  height: 100%;
+  width: 90vw;
+  border-radius: 15px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.text-slider {
+  position: relative;
+  bottom: 5rem;
+  padding-left: 9px;
+  padding-right: 52px;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 0px 5px 15px rgba(0, 0, 0, 1);
+  font-family: 'SamsungSharpSans-Bold';
+  text-align: left;
+  line-height: 1.5;
+  text-transform: uppercase;
+  z-index: 1;
+}
+
+
+.progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background-color: #fff;
+  animation-name: progressBar;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes progressBar {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
