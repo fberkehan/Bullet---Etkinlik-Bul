@@ -4,8 +4,8 @@ import { cleanHtml, openMap } from '../../assets/js/utils';
 import { getEventDetails } from '../../components/services/api';
 import moment from 'moment';
 import 'moment/locale/tr';
-
 import { Skeleton } from '@mui/material';
+
 
 function EtkinlikDetails() {
   const [eventDetails, setEventDetails] = useState(null);
@@ -43,7 +43,6 @@ function EtkinlikDetails() {
   }
   const latitude = eventDetails?.venue?.lat;
   const longitude = eventDetails?.venue?.lng;
-
   return (
     <div className='etkinlikDetails' style={{ textAlign: 'center' }}>
       <br />
@@ -108,6 +107,9 @@ function EtkinlikDetails() {
             </button>
             <button type="button" className="btn btn-warning">
               <i className="fa-solid fa-ticket"></i> Satın Al
+            </button>
+            <button type="button" className="btn btn-danger">
+              <i className="fa-solid  fa-shopping-basket"></i> Sepete Ekle
             </button>
           </div>
         </div>
