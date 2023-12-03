@@ -3,12 +3,12 @@ import '../../assets/css/extra.css';
 import Maskot from '../../assets/img/bulutLogo.png';
 import otherPhoto from '../../assets/img/other.png';
 import { Link } from 'react-router-dom';
-import { getCategories } from '../services/api';
+import { getEvents } from '../services/api'; // getEvents fonksiyonunu kullanacağız
 import Skeleton from '@mui/material/Skeleton';
 import { sidebarOpener } from '../../assets/js/utils';
 
 function Sidebar() {
-  const [kategoriler, setKategoriler] = useState([]);
+  const [events, setEvents] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -16,28 +16,31 @@ function Sidebar() {
     setIsLoading(true);
     setError(null);
 
-    const cachedKategoriler = localStorage.getItem('kategoriler');
-    if (cachedKategoriler) {
-      setKategoriler(JSON.parse(cachedKategoriler));
+    const cachedEvents = localStorage.getItem('events');
+    if (cachedEvents) {
+      setEvents(JSON.parse(cachedEvents));
       setIsLoading(false);
     } else {
-      getCategories()
+      getEvents() // Tüm etkinlikleri çekiyoruz
         .then(data => {
           if (data && data.length > 0) {
-            setKategoriler(data);
-            localStorage.setItem('kategoriler', JSON.stringify(data));
+            setEvents(data);
+            localStorage.setItem('events', JSON.stringify(data));
           } else {
-            setError('Kategori verisi bulunamadı.');
+            setError('Etkinlik verisi bulunamadı.');
           }
           setIsLoading(false);
         })
         .catch(error => {
-          console.error('Kategoriler alınamadı:', error);
-          setError('Kategoriler yüklenirken bir hata oluştu.');
+          console.error('Etkinlikler alınamadı:', error);
+          setError('Etkinlikler yüklenirken bir hata oluştu.');
           setIsLoading(false);
         });
     }
   }, []);
+
+  // Kategori adlarını saklamak için bir set kullanabiliriz
+  const categoryNames = new Set();
 
   return (
     <div className='sidebar'>
@@ -52,13 +55,24 @@ function Sidebar() {
       ) : error ? (
         <div className="error-message">{error}</div>
       ) : (
-        kategoriler.map((category) => (
-          <Link key={category.id} to={`/category/${category.id}`} style={{ textDecoration: 'none', color: 'blue' }}>
-            <div onClick={() => sidebarOpener()} id="categoryDiv" className="otherCategory" style={{ backgroundImage: `url(${otherPhoto})`, backgroundPosition: 'right', backgroundSize: 'cover', backgroundRepeat: 'no-repeat', filter: 'brightness(1)' }}>
-              <h1 style={{ color: 'white', fontFamily: 'SamsungSharpSans-Bold', fontWeight: 'bold', fontSize: '20px' }}>{category.name}</h1>
-            </div>
-          </Link>
-        ))
+        events.map(event => {
+          const categoryName = event.category.name;
+
+          // Eğer kategori adı daha önce eklenmediyse, ekleyin ve etkinliği gösterin
+          if (!categoryNames.has(categoryName)) {
+            categoryNames.add(categoryName);
+
+            return (
+              <Link key={event.id} to={`/category/${event.category.id}`} style={{ textDecoration: 'none', color: 'blue' }}>
+                <div onClick={() => sidebarOpener()} id="categoryDiv" className="otherCategory" style={{ backgroundImage: `url(${otherPhoto})`, backgroundPosition: 'right', backgroundSize: 'cover', backgroundRepeat: 'no-repeat', filter: 'brightness(1)' }}>
+                  <h1 style={{ color: 'white', fontFamily: 'SamsungSharpSans-Bold', fontWeight: 'bold', fontSize: '20px' }}>{categoryName}</h1>
+                </div>
+              </Link>
+            );
+          }
+
+          return null; // Aynı kategori adı daha önce eklenmişse, null döndür
+        })
       )}
     </div>
   );
