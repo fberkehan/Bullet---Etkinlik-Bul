@@ -3,7 +3,7 @@ import '../../assets/css/extra.css';
 import Maskot from '../../assets/img/bulutLogo.png';
 import otherPhoto from '../../assets/img/other.png';
 import { Link } from 'react-router-dom';
-import { getEvents } from '../services/api'; // getEvents fonksiyonunu kullanacağız
+import { getEvents } from '../services/api'; 
 import Skeleton from '@mui/material/Skeleton';
 import { sidebarOpener } from '../../assets/js/utils';
 
@@ -39,7 +39,6 @@ function Sidebar() {
     }
   }, []);
 
-  // Kategori adlarını saklamak için bir set kullanabiliriz
   const categoryNames = new Set();
 
   return (
@@ -58,7 +57,6 @@ function Sidebar() {
         events.map(event => {
           const categoryName = event.category.name;
 
-          // Eğer kategori adı daha önce eklenmediyse, ekleyin ve etkinliği gösterin
           if (!categoryNames.has(categoryName)) {
             categoryNames.add(categoryName);
 
@@ -71,7 +69,7 @@ function Sidebar() {
             );
           }
 
-          return null; // Aynı kategori adı daha önce eklenmişse, null döndür
+          return null; 
         })
       )}
     </div>
