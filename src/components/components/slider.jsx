@@ -4,7 +4,7 @@ import Skeleton from '@mui/material/Skeleton';
 import { Link } from 'react-router-dom';
 import './../../assets/css/slider.css';
 import './../../assets/css/extra.css';
-import { getEventsByCity } from '../services/api';
+import { getEvents } from '../services/api';
 
 
 function CustomSlider() {
@@ -20,7 +20,7 @@ function CustomSlider() {
         setIsLoading(false);
       } else {
         try {
-          const data = await getEventsByCity();
+          const data = await getEvents();
           setEvents(data.items);
           localStorage.setItem('events', JSON.stringify(data.items));
           setIsLoading(false);

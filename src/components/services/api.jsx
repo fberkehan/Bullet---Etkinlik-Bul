@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const BASE_URL = 'https://backend.etkinlik.io/api/v2';
-const API_KEY = '58662aa042385a8456b537d3d01d5be7'; // Gerçek API anahtarınızı buraya girin
+const API_KEY = '58662aa042385a8456b537d3d01d5be7'; 
 
 const headers = {
   'Content-Type': 'application/json',
@@ -15,29 +15,12 @@ const headers = {
 export const getEvents = async () => {
   try {
     const response = await axios.get(`${BASE_URL}/events`, { headers });
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
-};
-
-
-export const getEventsByCity = async () => {
-  try {
-    const response = await axios.get(`${BASE_URL}/events`, { 
-      headers,
-      params: {
-        orderBy: 'startDate',
-        orderDirection: 'asc'
-      } 
-    });
     console.log(response.data);
     return response.data;
   } catch (error) {
     throw error;
   }
 };
-
 
 // Etkinlik Servisi
 export const getEventDetails = async (eventId) => {
