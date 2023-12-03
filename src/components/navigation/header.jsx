@@ -19,7 +19,7 @@ function Header() {
 
         observer.observe(sidebar, { attributes: true });
 
-        return () => observer.disconnect(); // Cleanup
+        return () => observer.disconnect();
     }, []);
 
     return (
@@ -29,7 +29,8 @@ function Header() {
                 {!sayfaAdi && <img className="navbar-brand d-inline-block align-top" src={BulletLogo} alt="Maskot" style={{ width: '150px' }}/>}
                 {sayfaAdi && <h1 id="logoText" style={{ color: 'white', fontFamily: 'SamsungSharpSans-Bold', fontWeight: 'bold', fontSize: '26px', paddingTop: '10px' }}>{sayfaAdi}</h1>}
             </div>
-            <i className="fa-solid fa-location-dot"></i>
+            <i className="fa-solid fa-ticket"></i>
+            <div id='ticketCart'>0</div>
         </nav>
     );
 }

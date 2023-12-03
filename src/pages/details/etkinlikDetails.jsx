@@ -25,9 +25,9 @@ function EtkinlikDetails() {
   }, [id]);
 
   const isEventPassed = () => {
-    const now = moment(); // moment kullanarak tarih oluşturun
+    const now = moment();
     const endDate = moment(eventDetails?.end);
-    return endDate.isBefore(now); // moment ile tarihi karşılaştırın
+    return endDate.isBefore(now);
   };
 
   if (!eventDetails) {
