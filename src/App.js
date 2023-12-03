@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './components/navigation/header';
 import Sidebar from './components/navigation/sidebar';
+import CartSidebar from './components/components/cartSidebar';
 import Footer from './components/navigation/footer';
 import Categories from './pages/categories';
 import OldTickets from './pages/oldTickets';
@@ -17,6 +18,7 @@ function App() {
       <ShoppingCartProvider>
         <Header />
         <Sidebar />
+        <CartSidebar />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/categories" element={<Categories />} />

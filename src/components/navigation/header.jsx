@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../assets/css/header.css';
 import BulletLogo from '../../assets/img/bulletLogoYatay.png'; 
-import { sidebarOpener } from '../../assets/js/utils';
+import { sidebarOpener, cartSidebarOpener } from '../../assets/js/utils';
 import { useShoppingCart } from '../../ticketManagment';
 
 function Header() {
@@ -36,8 +36,11 @@ function Header() {
                 {!sayfaAdi && <img className="navbar-brand d-inline-block align-top" src={BulletLogo} alt="Maskot" style={{ width: '150px' }}/>}
                 {sayfaAdi && <h1 id="logoText" style={{ color: 'white', fontFamily: 'SamsungSharpSans-Bold', fontWeight: 'bold', fontSize: '26px', paddingTop: '10px' }}>{sayfaAdi}</h1>}
             </div>
+            <div onClick={cartSidebarOpener}>
             <i className="fa-solid fa-ticket"></i>
             <div id='ticketCart'>0</div>
+            </div>
+            
         </nav>
     );
 }

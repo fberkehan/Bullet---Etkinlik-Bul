@@ -8,9 +8,15 @@ export function ShoppingCartProvider({ children }) {
 
 
   const addToCart = (ticket) => {
-    setCartItems([...cartItems, ticket]);
+    const existingItem = cartItems.find((item) => item.id === ticket.id);
+    if (existingItem) {
+      existingItem.quantity += 1;
+      setCartItems([...cartItems]); 
+    } else {
+      setCartItems([...cartItems, { ...ticket, quantity: 1 }]);
+    }
   };
-
+  
 
   const removeFromCart = (ticketId) => {
     const updatedCart = cartItems.filter((ticket) => ticket.id !== ticketId);

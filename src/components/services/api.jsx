@@ -10,28 +10,44 @@ const headers = {
 };
 
 
-// api.js içerisinde
-// services/api.js
+
 export const getEvents = async () => {
   try {
     const response = await axios.get(`${BASE_URL}/events`, { headers });
-    console.log(response.data);
-    return response.data;
+
+  
+    const updatedData = response.data.map(event => ({
+      ...event,
+      price: Math.floor(Math.random() * 100) 
+    }));
+
+    console.log(updatedData);
+    return updatedData;
   } catch (error) {
     throw error;
   }
 };
 
-// Etkinlik Servisi
+
+
+
 export const getEventDetails = async (eventId) => {
   try {
     const response = await axios.get(`${BASE_URL}/events/${eventId}`, { headers });
-    return response.data;
+
+
+    const eventWithPrice = {
+      ...response.data,
+      price: Math.floor(Math.random() * 1000) 
+    };
+
+    return eventWithPrice;
   } catch (error) {
     console.error("Hata Etkinlik Detayı Alınırken: ", error);
     throw error;
   }
 };
+
 
 // Mekan Servisi
 export const getVenueDetails = async (venueId) => {

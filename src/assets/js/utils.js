@@ -33,3 +33,10 @@ export function sidebarOpener() {
     div.classList.toggle('textOpener');
   });
 }
+
+
+export function cartSidebarOpener() {
+  const sidebar = document.querySelector('.cartSidebar');
+  sidebar.classList.toggle('activeSidebar');
+}
+

@@ -11,6 +11,18 @@
     padding-top: 60px;
 }
 
+.cartSidebar{
+    height: 94vh;
+    width: 00vw;
+    position: fixed;
+    z-index: 9;
+    top: 5vh;
+    right: 0;
+    background-color: #030708 !important;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
 
 .slider {
     padding-top: 30px !important;

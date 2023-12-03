@@ -38,10 +38,9 @@ function EtkinlikDetails() {
       const ticket = {
         id: eventDetails.id,
         name: eventDetails.name,
-        price: eventDetails.ticket_price,
+        price: eventDetails.price,
       };
       addToCart(ticket);
-      alert('Ürün sepete eklendi.');
     }
   };
 
@@ -68,7 +67,7 @@ function EtkinlikDetails() {
       <br />
       <br />
       <p style={{ color: 'white', padding: '10px', fontWeight: 'bold', backgroundColor: '#131a30' }}>Kategori: {cleanHtml(eventDetails.category?.name)}</p>
-
+      <p style={{ color: 'white', padding: '10px', fontWeight: 'bold', backgroundColor: '#163b30' }}>Fiyat: {eventDetails.price} ₺</p>
       <p style={{ color: 'white', padding: '10px', whiteSpace: 'pre-wrap' }}>{cleanHtml(eventDetails.content)}</p>
       <p style={{ color: 'white', padding: '10px', fontWeight: 'bold', backgroundColor: '#163b30' }}>Nerede, Ne Zaman?</p>
       <p style={{ color: 'white', padding: '10px' }}><i className="fa-solid fa-map-pin"></i> Adres:<br /> {cleanHtml(eventDetails.venue?.name)}<br />{cleanHtml(eventDetails.venue?.city?.name + ', ' + eventDetails.venue?.district?.name)}</p>
@@ -104,11 +103,11 @@ function EtkinlikDetails() {
             <button type="button" className="btn btn-primary" disabled>
               <i className="fa-solid fa-phone"></i> Telefon
             </button>
-            <button type="button" className="btn btn-success" disabled>
+            <button type="button" className="btn btn-warning" disabled>
               <i className="fa-solid fa-map-location-dot"></i> Konuma Git
             </button>
-            <button type="button" className="btn btn-warning" disabled>
-              <i className="fa-solid fa-ticket"></i> Satın Al
+            <button type="button" className="btn btn-danger" disabled>
+              <i className="fa-solid fa-ticket"></i> Tükendi
             </button>
           </div>
         </>
@@ -118,13 +117,10 @@ function EtkinlikDetails() {
             <button type="button" className="btn btn-primary">
               <i className="fa-solid fa-phone"></i> Telefon
             </button>
-            <button type="button" className="btn btn-success" onClick={() => openMap(cleanHtml(eventDetails.venue?.name) + ' ' + cleanHtml(eventDetails.venue?.city?.name + ', ' + eventDetails.venue?.district?.name))}>
+            <button type="button" className="btn btn-warning" onClick={() => openMap(cleanHtml(eventDetails.venue?.name) + ' ' + cleanHtml(eventDetails.venue?.city?.name + ', ' + eventDetails.venue?.district?.name))}>
               <i className="fa-solid fa-map-location-dot"></i> Konuma Git
             </button>
-            <button type="button" className="btn btn-warning">
-              <i className="fa-solid fa-ticket"></i> Satın Al
-            </button>
-            <button type="button" className="btn btn-danger"  onClick={handleAddToCart}>
+            <button type="button" className="btn btn-success"  onClick={handleAddToCart}>
               <i className="fa-solid  fa-shopping-basket"></i> Sepete Ekle
             </button>
           </div>
