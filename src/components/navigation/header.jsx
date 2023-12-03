@@ -3,9 +3,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../assets/css/header.css';
 import BulletLogo from '../../assets/img/bulletLogoYatay.png'; 
 import { sidebarOpener } from '../../assets/js/utils';
+import { useShoppingCart } from '../../ticketManagment';
 
 function Header() {
     const [sayfaAdi, setSayfaAdi] = useState('');
+    const { cartItems } = useShoppingCart();
 
     useEffect(() => {
         const sidebar = document.querySelector('.sidebar');
@@ -21,6 +23,11 @@ function Header() {
 
         return () => observer.disconnect();
     }, []);
+
+    useEffect(() => {
+        const cartItemCount = cartItems.length;
+        document.getElementById('ticketCart').textContent = cartItemCount.toString();
+    }, [cartItems]);
 
     return (
         <nav className="bulletHeader">

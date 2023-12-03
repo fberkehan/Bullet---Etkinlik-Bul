@@ -5,11 +5,14 @@ import { getEventDetails } from '../../components/services/api';
 import moment from 'moment';
 import 'moment/locale/tr';
 import { Skeleton } from '@mui/material';
+import { useShoppingCart } from '../../ticketManagment'; 
+
 
 
 function EtkinlikDetails() {
   const [eventDetails, setEventDetails] = useState(null);
   const { id } = useParams();
+  const { addToCart } = useShoppingCart();
 
   useEffect(() => {
     if (id) {
@@ -29,6 +32,19 @@ function EtkinlikDetails() {
     const endDate = moment(eventDetails?.end);
     return endDate.isBefore(now);
   };
+
+  const handleAddToCart = () => {
+    if (eventDetails) {
+      const ticket = {
+        id: eventDetails.id,
+        name: eventDetails.name,
+        price: eventDetails.ticket_price,
+      };
+      addToCart(ticket);
+      alert('Ürün sepete eklendi.');
+    }
+  };
+
 
   if (!eventDetails) {
     return (
@@ -108,7 +124,7 @@ function EtkinlikDetails() {
             <button type="button" className="btn btn-warning">
               <i className="fa-solid fa-ticket"></i> Satın Al
             </button>
-            <button type="button" className="btn btn-danger">
+            <button type="button" className="btn btn-danger"  onClick={handleAddToCart}>
               <i className="fa-solid  fa-shopping-basket"></i> Sepete Ekle
             </button>
           </div>
