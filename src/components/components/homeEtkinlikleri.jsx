@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Skeleton from '@mui/material/Skeleton';
-import { getEventsByCity } from '../services/api';
+import { getEvents } from '../services/api';
 
 import { Link } from 'react-router-dom';
 
@@ -16,7 +16,7 @@ function HomeEtkinlikleri() {
                 setIsLoading(false);
             } else {
                 try {
-                    const data = await getEventsByCity();
+                    const data = await getEvents();
                     setEvents(data.items);
                     localStorage.setItem('events', JSON.stringify(data.items));
                     setIsLoading(false);
