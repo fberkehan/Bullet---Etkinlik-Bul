@@ -25,8 +25,8 @@ function Header() {
     }, []);
 
     useEffect(() => {
-        const cartItemCount = cartItems.length;
-        document.getElementById('ticketCart').textContent = cartItemCount.toString();
+        const totalTicketCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+        document.getElementById('ticketCart').textContent = totalTicketCount.toString();
     }, [cartItems]);
 
     return (
@@ -38,7 +38,7 @@ function Header() {
             </div>
             <div onClick={cartSidebarOpener}>
             <i className="fa-solid fa-ticket"></i>
-            <div id='ticketCart'>0₺</div>
+            <div id='ticketCart'>0</div>
             </div>
             
         </nav>

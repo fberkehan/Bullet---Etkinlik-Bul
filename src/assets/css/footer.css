@@ -2,7 +2,7 @@
 @media screen and (max-width: 600px) {
 
     .footer {
-        height: 55px;
+        height: 65px;
         width: 100%;
         position: fixed;
         z-index: 9;
@@ -47,7 +47,7 @@
     
     
     
-    ul {
+    .ulFooter {
         text-align: center;
         list-style-type: none;
         padding-right: 0px;
@@ -60,7 +60,7 @@
         bottom: 0px;
     }
     
-    li {
+    .liFooter {
         display: inline;
         margin-left: -5px;
         text-decoration: none;

@@ -42,7 +42,7 @@ function EtkinlikDetails() {
       document.getElementById('ticketCart').classList.add('cartAnimation');
       setTimeout(() => {
         document.getElementById('ticketCart').classList.remove('cartAnimation');
-      }, 3000);
+      }, 500);
     }
   };
   if (!eventDetails) {

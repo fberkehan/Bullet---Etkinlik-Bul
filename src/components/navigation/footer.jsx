@@ -19,12 +19,12 @@ function footer() {
   return (
     <div className='footer'>
     <div className='footer-notch'></div>
-    <ul>
-      <li><Link to="/"><i className="fas fa-home"></i></Link></li>
-      <li><Link to="/categories"><i className="fas fa-ticket-alt"></i></Link></li>
-      <li onClick={toggleFullScreen}><i className="fas fa-qrcode qrcode"></i></li>
-      <li><Link to="/oldTickets"><i className="fas fa-clock"></i></Link></li>
-      <li><i className="fas fa-envelope"></i></li>
+    <ul className='ulFooter'>
+      <li className='liFooter'><Link to="/"><i className="fas fa-home"></i></Link></li>
+      <li className='liFooter'><Link to="/categories"><i className="fas fa-ticket-alt"></i></Link></li>
+      <li className='liFooter' onClick={toggleFullScreen}><i className="fas fa-qrcode qrcode"></i></li>
+      <li className='liFooter'><Link to="/oldTickets"><i className="fas fa-clock"></i></Link></li>
+      <li className='liFooter'><i className="fas fa-envelope"></i></li>
     </ul>
 </div>
   )
