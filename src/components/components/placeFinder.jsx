@@ -7,7 +7,6 @@ function PlaceFinder() {
   const { slug } = useParams();
   const { events } = useData();
 
-  // URL'den alınan venue.slug değeri ile aynı değere sahip etkinlikleri filtrele
   const filteredEvents = events.filter((event) => event.venue.slug === slug);
 
   return (

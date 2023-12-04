@@ -58,7 +58,9 @@ function CustomSlider() {
                   }}
                 />
                 <div>
-                  <h1 className="text-slider">{event.name}</h1>
+                  {/* buradaki etkinlik adını 20 karakter ile sınırla */}
+                  <h1 className="text-slider">{event.name.slice(0, 40)}...</h1>
+
                 </div>
               </Link>
             </div>
