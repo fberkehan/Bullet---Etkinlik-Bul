@@ -48,9 +48,33 @@ a {
     font-size: 12px;
     border: 2px solid white;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
+    color: white;
+
 }
+
+.cartAnimation{
+  animation-name: cartAnimation;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes cartAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
 .disableLogo{
   display: none !important;
 }

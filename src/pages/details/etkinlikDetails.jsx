@@ -39,6 +39,10 @@ function EtkinlikDetails() {
         price: eventDetails.price,
       };
       addToCart(ticket);
+      document.getElementById('ticketCart').classList.add('cartAnimation');
+      setTimeout(() => {
+        document.getElementById('ticketCart').classList.remove('cartAnimation');
+      }, 3000);
     }
   };
   if (!eventDetails) {
