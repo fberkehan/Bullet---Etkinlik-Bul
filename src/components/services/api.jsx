@@ -14,16 +14,9 @@ const headers = {
 export const getEvents = async () => {
   try {
     const response = await axios.get(`${BASE_URL}/events`, { headers });
-
-  
-    const updatedData = response.data.map(event => ({
-      ...event,
-      price: Math.floor(Math.random() * 100) 
-    }));
-
-    console.log(updatedData);
-    return updatedData;
+    return response.data;
   } catch (error) {
+    console.error("Hata Etkinlikleri Alınırken: ", error);
     throw error;
   }
 };
@@ -38,7 +31,8 @@ export const getEventDetails = async (eventId) => {
 
     const eventWithPrice = {
       ...response.data,
-      price: Math.floor(Math.random() * 1000) 
+      // bu sayı 100 ile 1000 arasında olsun
+      price: Math.floor(Math.random() * (1000 - 100 + 1) + 100)
     };
 
     return eventWithPrice;

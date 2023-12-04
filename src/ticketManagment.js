@@ -1,4 +1,6 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import { getEvents, getCategories} from './components/services/api';
+
 
 const ShoppingCartContext = createContext();
 
@@ -51,3 +53,66 @@ export function useShoppingCart() {
   }
   return context;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const DataContext = createContext();
+
+export function DataProvider({ children }) {
+  const [events, setEvents] = useState([]);
+  const [categories, setCategories] = useState([]);
+  // Diğer veri türleri için state'ler
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchAllData() {
+      setIsLoading(true);
+      try {
+        const eventsData = await getEvents();
+        setEvents(eventsData.items);
+        const categoriesData = await getCategories();
+        setCategories(categoriesData);
+        // Diğer veri türleri için API çağrıları
+      } catch (error) {
+        console.error('Veri yükleme hatası', error);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    fetchAllData();
+  }, []);
+
+  return (
+    <DataContext.Provider
+      value={{
+        events,
+        categories,
+        isLoading,
+      }}
+    >
+      {children}
+    </DataContext.Provider>
+  );
+}
+
+export function useData() {
+  const context = useContext(DataContext);
+  if (!context) {
+    throw new Error('DataContext içinde kullanılmalıdır');
+  }
+  return context;
+}
+
+

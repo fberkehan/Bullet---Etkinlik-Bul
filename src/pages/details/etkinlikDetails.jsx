@@ -7,15 +7,13 @@ import 'moment/locale/tr';
 import { Skeleton } from '@mui/material';
 import { useShoppingCart } from '../../ticketManagment'; 
 
-
-
 function EtkinlikDetails() {
   const [eventDetails, setEventDetails] = useState(null);
   const { id } = useParams();
   const { addToCart } = useShoppingCart();
 
   useEffect(() => {
-    if (id) {
+    if (id && eventDetails === null) { // Only fetch if eventDetails is null
       getEventDetails(id)
         .then((data) => {
           console.log('Etkinlik detayları:', data);
@@ -25,7 +23,7 @@ function EtkinlikDetails() {
           console.error('Etkinlik detayları alınırken bir hata oluştu:', error);
         });
     }
-  }, [id]);
+  }, [id, eventDetails]);
 
   const isEventPassed = () => {
     const now = moment();
@@ -43,8 +41,6 @@ function EtkinlikDetails() {
       addToCart(ticket);
     }
   };
-
-
   if (!eventDetails) {
     return (
       <div className='etkinlikDetails' style={{ textAlign: 'center', margin: 'auto' }}>
@@ -66,10 +62,10 @@ function EtkinlikDetails() {
       <img className='image-slider' src={eventDetails.poster_url} alt={eventDetails.name} />
       <br />
       <br />
-      <p style={{ color: 'white', padding: '10px', fontWeight: 'bold', backgroundColor: '#131a30' }}>Kategori: {cleanHtml(eventDetails.category?.name)}</p>
-      <p style={{ color: 'white', padding: '10px', fontWeight: 'bold', backgroundColor: '#163b30' }}>Fiyat: {eventDetails.price} ₺</p>
+      <p style={{ color: 'white', padding: '10px', fontWeight: 'bold', backgroundColor: '#0c2540' }}>Kategori: {cleanHtml(eventDetails.category?.name)}</p>
+      <p style={{ color: 'white', padding: '10px', fontWeight: 'bold', backgroundColor: '#183e62' }}>Fiyat: {eventDetails.price} ₺</p>
       <p style={{ color: 'white', padding: '10px', whiteSpace: 'pre-wrap' }}>{cleanHtml(eventDetails.content)}</p>
-      <p style={{ color: 'white', padding: '10px', fontWeight: 'bold', backgroundColor: '#163b30' }}>Nerede, Ne Zaman?</p>
+      <p style={{ color: 'white', padding: '10px', fontWeight: 'bold', backgroundColor: '#297099' }}>Nerede, Ne Zaman?</p>
       <p style={{ color: 'white', padding: '10px' }}><i className="fa-solid fa-map-pin"></i> Adres:<br /> {cleanHtml(eventDetails.venue?.name)}<br />{cleanHtml(eventDetails.venue?.city?.name + ', ' + eventDetails.venue?.district?.name)}</p>
       <p style={{ color: 'white', padding: '10px' }}><i className="fa-solid fa-clock"></i> Başlangıç Tarihi: {moment(eventDetails.start).format('DD/MM/YYYY HH:mm') + ' ' + moment(eventDetails.start).locale('tr').format('dddd')}<br /><i className="fa-solid fa-clock"></i> Bitiş Tarihi: {moment(eventDetails.end).format('DD/MM/YYYY HH:mm') + ' ' + moment(eventDetails.end).locale('tr').format('dddd')}</p>
 

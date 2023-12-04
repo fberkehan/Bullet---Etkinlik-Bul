@@ -8,7 +8,7 @@
         z-index: 9;
         bottom: -1px;
         right: 0;
-        background-color: #1b1b1b;
+        background-color: #0c2540;
         transition: 0.5s;
         box-shadow: 0px -5px 15px rgba(0, 0, 0, 0.25);
         
@@ -39,7 +39,7 @@
         transform: translateX(-50%);
         width: 120px;
         height: 120px;
-        background-color: #1b1b1b;
+        background-color: #0c2540;
         border-radius: 60px 60px 0 0;
         box-shadow: 0px -5px 15px rgba(0, 0, 0, 0.25);
     }
@@ -69,9 +69,6 @@
         font-size: 26px;
     }
     
-    li:hover {
-        color: #ff6600 !important;
-    }
     
     
     .qrcode {
@@ -79,7 +76,7 @@
         width: 90px;
         position: relative;
         bottom: 10px;
-        color: #acaeff !important;
+        color: #4c9ec8 !important;
     }
     
     

@@ -38,7 +38,7 @@ function Header() {
             </div>
             <div onClick={cartSidebarOpener}>
             <i className="fa-solid fa-ticket"></i>
-            <div id='ticketCart'>0</div>
+            <div id='ticketCart'>0₺</div>
             </div>
             
         </nav>
