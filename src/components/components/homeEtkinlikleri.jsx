@@ -19,7 +19,7 @@ function HomeEtkinlikleri() {
                         <div className="card" style={{ width: '100%', height: '100%', backgroundColor: 'transparent', border: 'none', color: 'white' }}>
                             <img src={event.poster_url} alt={event.name} style={{ borderRadius: '10px' }} />
                             <div className="card-body" style={{ padding: '4px' }}>
-                                <h5 className="card-title" style={{ textAlign: 'center', fontWeight: 'bold', fontFamily: 'Samsung Sharp Sans Regular Regular', marginTop: '10px' }}>
+                                <h5 style={{fontSize: '17px',textAlign: 'center', fontWeight: 'bold', fontFamily: 'Samsung Sharp Sans Regular Regular', marginTop: '10px' }}>
                                     {event.name.length > 30 ? event.name.slice(0, 20) + "..." : event.name}
                                 </h5>
                             </div>
