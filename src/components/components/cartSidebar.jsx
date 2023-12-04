@@ -11,10 +11,10 @@ function CartSidebar() {
   return (
     <div className="cartSidebar">
       <h2 style={{ textAlign: 'center', color: 'white', fontFamily: 'SamsungSharpSans-Bold', fontWeight: 'bold' }}>Sepetiniz</h2>
-      <ul>
+      <ul style={{ paddingLeft: '10px', color: 'white', fontFamily: 'SamsungSharpSans-Bold', fontWeight: 'bold' }}>
         {cartItems.map((item, index) => (
           <li key={index} style={{ color: 'white',fontSize: '15px', fontFamily: 'Samsung Sharp Sans Regular', fontWeight: 'bold', listStyle: 'none', marginTop: '20px' }}>
-            {item.quantity} Adet | {item.name} | {item.price} TL
+             <i class="fa-solid fa-ticket"></i> {item.name} |  {item.quantity}x | {item.price} TL
           </li>
         ))}
       </ul>

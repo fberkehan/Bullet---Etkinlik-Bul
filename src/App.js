@@ -11,6 +11,8 @@ import Category from './pages/category';
 import HomePage from './pages/homePage';
 import './assets/fonts/style.css';
 import { ShoppingCartProvider, DataProvider } from './ticketManagment';
+import PlaceFinder from './components/components/placeFinder';
+
 
 
 function App() {
@@ -27,6 +29,7 @@ function App() {
             <Route path="/oldTickets" element={<OldTickets />} />
             <Route path="/category/:categoryId" element={<Category />} />
             <Route path="/etkinlik/:id" element={<EtkinlikDetails />} />
+            <Route path="/place/:slug" element={<PlaceFinder />} />
           </Routes>
           <Footer />
         </DataProvider>

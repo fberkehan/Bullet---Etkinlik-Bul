@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { cleanHtml, openMap } from '../../assets/js/utils';
+import { cleanHtml, openMap} from '../../assets/js/utils';
 import { getEventDetails } from '../../components/services/api';
 import moment from 'moment';
 import 'moment/locale/tr';
 import { Skeleton } from '@mui/material';
 import { useShoppingCart } from '../../ticketManagment'; 
+import { Link } from 'react-router-dom';
 
 function EtkinlikDetails() {
   const [eventDetails, setEventDetails] = useState(null);
@@ -70,8 +71,9 @@ function EtkinlikDetails() {
       <p style={{ color: 'white', padding: '10px', fontWeight: 'bold', backgroundColor: '#183e62', width: 'fit-content', margin: 'auto',borderRadius: '10px',marginBottom:'10px'  }}>Fiyat: {eventDetails.price} ₺</p>
       <p style={{ color: 'white', padding: '10px', whiteSpace: 'pre-wrap' }}>{cleanHtml(eventDetails.content)}</p>
       <p style={{ color: 'white', padding: '10px', fontWeight: 'bold', backgroundColor: '#297099', width: 'fit-content', margin: 'auto',borderRadius: '10px',marginBottom:'10px'   }}>Nerede, Ne Zaman?</p>
-      <p style={{ color: 'white', padding: '10px' }}><i className="fa-solid fa-map-pin"></i> Adres:<br /> {cleanHtml(eventDetails.venue?.name)}<br />{cleanHtml(eventDetails.venue?.city?.name + ', ' + eventDetails.venue?.district?.name)}</p>
-      <p style={{ color: 'white', padding: '10px' }}><i className="fa-solid fa-clock"></i> Başlangıç Tarihi: {moment(eventDetails.start).format('DD/MM/YYYY HH:mm') + ' ' + moment(eventDetails.start).locale('tr').format('dddd')}<br /><i className="fa-solid fa-clock"></i> Bitiş Tarihi: {moment(eventDetails.end).format('DD/MM/YYYY HH:mm') + ' ' + moment(eventDetails.end).locale('tr').format('dddd')}</p>
+      <Link to={`/place/${eventDetails.venue?.slug}`}> <p style={{ color: 'white', padding: '10px',backgroundColor: '#0c2540', width: 'fit-content', margin: 'auto',borderRadius: '10px',marginBottom:'10px' }}><i className="fa-solid fa-map-pin"></i> Mekan:<br /> {cleanHtml(eventDetails.venue?.name)}<br /></p></Link>
+      <p onClick={() => openMap(cleanHtml(eventDetails.venue?.name) + ' ' + cleanHtml(eventDetails.venue?.city?.name + ', ' + eventDetails.venue?.district?.name))} style={{ color: 'white', padding: '10px',backgroundColor: '#00634B', width: 'fit-content', margin: 'auto',borderRadius: '10px',marginBottom:'10px' }}><i class="fa-solid fa-map-location-dot"></i> Adres:<br />{cleanHtml(eventDetails.venue?.address+', ' + eventDetails.venue?.city?.name + ', ' + eventDetails.venue?.district?.name)}</p>
+      <p style={{ color: 'white', padding: '10px', backgroundColor: '#ff8800', width: 'fit-content', margin: 'auto',borderRadius: '10px',marginBottom:'10px' }}><i className="fa-solid fa-clock"></i> Başlangıç Tarihi: {moment(eventDetails.start).format('DD/MM/YYYY HH:mm') + ' ' + moment(eventDetails.start).locale('tr').format('dddd')}<br /><i className="fa-solid fa-clock"></i> Bitiş Tarihi: {moment(eventDetails.end).format('DD/MM/YYYY HH:mm') + ' ' + moment(eventDetails.end).locale('tr').format('dddd')}</p>
 
       {latitude !== "0.000000" && longitude !== "0.000000" && latitude !== undefined && longitude !== undefined && latitude !== null && longitude !== null && (
         <iframe
@@ -92,7 +94,7 @@ function EtkinlikDetails() {
           loading="lazy"
           allowFullScreen=""
           referrerPolicy="no-referrer-when-downgrade"
-          src={`https://www.google.com/maps/embed/v1/place?key=YOUR_GOOGLE_MAPS_API_KEY&q=${encodeURI(eventDetails.venue?.name + ', ' + eventDetails.venue?.city?.name + ', ' + eventDetails.venue?.district?.name)}`}
+          src={`https://www.google.com/maps/embed/v1/place?key=YOUR_GOOGLE_MAPS_API_KEY&q=${encodeURI(eventDetails.venue?.address)}`}
         ></iframe>
       )}
 
