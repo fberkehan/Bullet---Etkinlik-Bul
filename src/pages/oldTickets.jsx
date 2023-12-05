@@ -26,7 +26,7 @@ function OldTickets() {
                     </Link>
                 ))
             ) : (
-                <p>Tarihi geçmiş etkinlik bulunamadı.</p>
+                <p style={{ color: 'white', fontFamily: 'SamsungSharpSans-Bold',marginTop: '20px',textAlign: 'center' }}>Tarihi geçmiş etkinlik bulunamadı.</p>
             )}
         </div>
     );

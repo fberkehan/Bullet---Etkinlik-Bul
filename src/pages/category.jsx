@@ -41,8 +41,8 @@ function Category() {
     slidesToScroll: 1,
     vertical: true,
     verticalSwiping: true,
-    adaptiveHeight: true, // Slider'ın içeriğe otomatik olarak uyum sağlaması için
-    centerMode: true, // Slider'ın ortalanmış şekilde görünmesi için
+    adaptiveHeight: true,
+    centerMode: true, 
   };
 
   return (

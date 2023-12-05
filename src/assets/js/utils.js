@@ -2,7 +2,6 @@ import moment from 'moment';
 import 'moment/locale/tr';
 
 export function cleanHtml(html) {
-  // Tüm virgüllerden sonra \n eklemek için replace fonksiyonunu kullanın
   const cleanedHtml = html.replace(/<\/?[^>]+(>|$)/g, "\n");
   return cleanedHtml;
 }

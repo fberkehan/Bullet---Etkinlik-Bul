@@ -58,22 +58,14 @@ export function useShoppingCart() {
 
 
 
-
-
-
-
-
-
-
-
-
 const DataContext = createContext();
 
 export function DataProvider({ children }) {
   const [events, setEvents] = useState([]);
   const [categories, setCategories] = useState([]);
-  // Diğer veri türleri için state'ler
   const [isLoading, setIsLoading] = useState(true);
+  const [venues, setVenues] = useState([]);
+
 
   useEffect(() => {
     async function fetchAllData() {
@@ -83,7 +75,16 @@ export function DataProvider({ children }) {
         setEvents(eventsData.items);
         const categoriesData = await getCategories();
         setCategories(categoriesData);
-        // Diğer veri türleri için API çağrıları
+
+          // Mekanları gruplandırma
+          const venueSet = new Set();
+          eventsData.items.forEach(event => {
+            if (event.venue) {
+              venueSet.add(event.venue);
+            }
+          });
+          setVenues(Array.from(venueSet));
+          
       } catch (error) {
         console.error('Veri yükleme hatası', error);
       } finally {
@@ -99,6 +100,7 @@ export function DataProvider({ children }) {
       value={{
         events,
         categories,
+        venues,
         isLoading,
       }}
     >

@@ -5,7 +5,7 @@ import CartSidebar from './components/components/cartSidebar';
 import Footer from './components/navigation/footer';
 import Categories from './pages/categories';
 import OldTickets from './pages/oldTickets';
-import activityDetails from './pages/details/activityDetails';
+import ActivityDetails from './pages/details/activityDetails';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Category from './pages/category';
 import HomePage from './pages/homePage';
@@ -19,7 +19,7 @@ function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0); // Sayfanın en üstüne çık
+    window.scrollTo(0, 0); 
   }, [pathname]);
 
   return null;
@@ -40,7 +40,7 @@ function App() {
             <Route path="/categories" element={<Categories />} />
             <Route path="/oldTickets" element={<OldTickets />} />
             <Route path="/category/:categoryId" element={<Category />} />
-            <Route path="/etkinlik/:id" element={<activityDetails />} />
+            <Route path="/etkinlik/:id" element={<ActivityDetails />} />
             <Route path="/place/:slug" element={<PlaceFinder />} />
           </Routes>
           <Footer />
