@@ -40,3 +40,5 @@ export function cartSidebarOpener() {
   sidebar.classList.toggle('activeSidebar');
 }
 
+
+

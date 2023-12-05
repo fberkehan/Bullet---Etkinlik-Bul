@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useData } from '../../ticketManagment';
+import { Link } from 'react-router-dom';
 
 function Search() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -36,7 +37,7 @@ function Search() {
 
       <div id='searchResults' style={{ display: 'flex', flexDirection: 'column', padding: '25px' }}>
         {filteredEvents.map((event) => (
-          <div style={{ marginBottom: '20px', padding: '0', color: 'white', fontFamily: 'SamsungSharpSans-Bold' }} key={event.id}>{event.name}</div>
+          <Link to={`/etkinlik/${event.id}`} key={event.id}><div style={{ marginBottom: '20px', padding: '0', color: 'white', fontFamily: 'SamsungSharpSans-Bold' }} key={event.id}>{event.name}</div></Link>
         ))}
 
       </div>

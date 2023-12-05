@@ -73,9 +73,19 @@ function Category() {
                 </div>
               </div>
             </Link>
+            <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
+
+       
           </div>
         ))}
       </Slider>
+      {events.length > 1 && (
+  <iframe
+    style={{ position: 'fixed', top: '376px', zIndex: '9' }}
+    src="https://lottie.host/embed/d7da0b68-7e85-4394-8d03-b27b6028b067/UfgwfmtA0H.json"
+  ></iframe>
+)}
+
     </div>
   );
 }
