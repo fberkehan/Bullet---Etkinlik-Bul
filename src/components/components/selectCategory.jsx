@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './../../assets/css/extra.css';
 import KonserWidget from '../../assets/img/konser.jpg';
 import Earth from '../../assets/img/earth.jpg';
@@ -6,11 +6,14 @@ import Tiyatro from '../../assets/img/tiyatro.jpg';
 import Sanat from '../../assets/img/sanat.jpg';
 import Clock from '../../assets/img/clock.jpg';
 import { Link } from 'react-router-dom';
+import TimeEvent from './timeEvent';
 
 function SelectCategory() {
-    
+    const [showTimeEvent, setShowTimeEvent] = useState(false); 
 
-
+    const handleDiv4Click = () => {
+        setShowTimeEvent(!showTimeEvent); 
+    };
 
     return (
         <div className='selectCategory'>
@@ -28,24 +31,23 @@ function SelectCategory() {
                     </Link>
                 </div>
                 <div className="div2" style={{ backgroundImage: `url(${Sanat})`, backgroundPosition: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat', filter: 'brightness(1)' }}>
-                    <Link to="/category/75"> 
-                    <h1 className='text-grid-2 text'>Sanat</h1>
+                    <Link to="/category/75">
+                        <h1 className='text-grid-2 text'>Sanat</h1>
                     </Link>
-
                 </div>
                 <div className="div3" style={{ backgroundImage: `url(${Tiyatro})`, backgroundPosition: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat', filter: 'brightness(1)' }}>
                     <Link to="/category/3964">
-                    <h1 className='text-grid-3 text'>Tiyatro</h1>
+                        <h1 className='text-grid-3 text'>Tiyatro</h1>
                     </Link>
                 </div>
-                <div className="div4" style={{ backgroundImage: `url(${Clock})`, backgroundPosition: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat', filter: 'brightness(1)' }}>
-                    <h1 className='text-grid-4 text'>Yakında</h1>    
+                <div className="div4" style={{ backgroundImage: `url(${Clock})`, backgroundPosition: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat', filter: 'brightness(1)' }} onClick={handleDiv4Click}>
+                    <Link to="/timeEvents">
+                    <h1 className='text-grid-4 text'>Yakında</h1>
+                    </Link>
+                    
                 </div>
-
-
+                
             </div>
-
-
         </div>
     );
 }

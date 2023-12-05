@@ -13,6 +13,7 @@ import './assets/fonts/style.css';
 import { ShoppingCartProvider, DataProvider } from './ticketManagment';
 import PlaceFinder from './components/components/placeFinder';
 import { useLocation } from 'react-router-dom';
+import TimeEvent from './components/components/timeEvent';
 
 
 function ScrollToTop() {
@@ -39,6 +40,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/categories" element={<Categories />} />
             <Route path="/oldTickets" element={<OldTickets />} />
+            <Route path="/timeEvents" element={<TimeEvent />} />
             <Route path="/category/:categoryId" element={<Category />} />
             <Route path="/etkinlik/:id" element={<ActivityDetails />} />
             <Route path="/place/:slug" element={<PlaceFinder />} />
