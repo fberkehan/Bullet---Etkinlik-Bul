@@ -94,7 +94,7 @@ function EtkinlikDetails() {
           loading="lazy"
           allowFullScreen=""
           referrerPolicy="no-referrer-when-downgrade"
-          src={`https://www.google.com/maps/embed/v1/place?key=YOUR_GOOGLE_MAPS_API_KEY&q=${encodeURI(eventDetails.venue?.address)}`}
+          src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyAFJg9HGQin84wH5y1zkjLE0NiZbeKqStc&q=${encodeURI(eventDetails.venue?.address)}`}
         ></iframe>
       )}
 

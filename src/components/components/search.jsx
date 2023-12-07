@@ -3,6 +3,7 @@ import { useData } from '../../ticketManagment';
 import { Link } from 'react-router-dom';
 
 
+
 function Search() {
   const [searchQuery, setSearchQuery] = useState('');
   const { events } = useData(); 
@@ -38,19 +39,6 @@ function Search() {
         onChange={handleSearchChange}
       />
 
-      <button 
-      
-      style={{ 
-        width: '50px', 
-        height: '50px', 
-        borderRadius: '5px', 
-        textAlign: 'center', 
-        color: 'white',
-        backgroundColor: 'rgba(0,0,0,0)',
-        fontFamily: 'SamsungSharpSans-Bold',
-        border: '2px solid white',
-        marginTop: '10px'
-    }}><i class="fa-solid fa-filter"></i></button>
 
       </div>
      

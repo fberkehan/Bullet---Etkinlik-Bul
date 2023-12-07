@@ -31,7 +31,6 @@ export const getEventDetails = async (eventId) => {
 
     const eventWithPrice = {
       ...response.data,
-      // bu sayı 100 ile 1000 arasında olsun
       price: Math.floor(Math.random() * (1000 - 100 + 1) + 100)
     };
 

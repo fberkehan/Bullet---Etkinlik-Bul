@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import HomePage from '../../pages/homePage';
 import { getEventsByCity } from '../services/api';
 
-// Global değişken veriyi saklamak için
 let cachedEvents = null;
 
 const SliderApi = () => {
@@ -11,11 +10,9 @@ const SliderApi = () => {
 
   useEffect(() => {
     if (cachedEvents) {
-      // Eğer cachedEvents doluysa, API'den tekrar veri çekmeye gerek yok
       setEvents(cachedEvents);
       setIsLoading(false);
     } else {
-      // Eğer cachedEvents boşsa, API'den veri çek
       getEventsByCity()
         .then(data => {
           const today = new Date();
@@ -25,7 +22,7 @@ const SliderApi = () => {
             const isNotDefaultImage = !event.poster_url.startsWith("https://ifyazilim.nyc3.digitaloceanspaces.com/EtkIO/PublicSite/VarsayilanAfisler/");
             return isToday && isNotDefaultImage;
           });
-          cachedEvents = filteredEvents; // Veriyi global değişkende sakla
+          cachedEvents = filteredEvents;
           setEvents(filteredEvents);
           setIsLoading(false);
         })
